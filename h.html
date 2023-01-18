@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <script type="text/JavaScript">
+    let bracketPairs = { '[':']', '{':'}', '(':')' }                              
+    let closingBrackets = new Set(Object.values(bracketPairs))                    
+                                                                                
+    function bracketsAreBalanced(text) {                                            
+        let open = [] // stack of (closing) brackets that need to be closed                       
+    for (char of text) {                                                        
+        if (closingBrackets.has(char)) {                                        
+            if (char === open[open.length-1]) open.pop()                        
+            else return false;                                                  
+        }                                                                       
+        if (char in bracketPairs) open.push(bracketPairs[char])                 
+    }                                                                           
+    return open.length === 0                                                    
+    }         
+    console.log(bracketsAreBalanced('()(()))'))
+    </script>
 </body>
+
 </html>
