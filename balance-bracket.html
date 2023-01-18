@@ -11,8 +11,7 @@
 <body>
     <script type="text/JavaScript">
     let bracketPairs = { '[':']', '{':'}', '(':')' }                              
-    let closingBrackets = new Set(Object.values(bracketPairs))                    
-                                                                                
+    let closingBrackets = new Set(Object.values(bracketPairs))                                                                                         
     function bracketsAreBalanced(text) {                                            
         let open = [] // stack of (closing) brackets that need to be closed                       
     for (char of text) {                                                        
