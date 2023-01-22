@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop</title>
+    <style>
+        header {
+            background-color: #D80;
+            padding: 24px;
+            height: 10px;
+            position: relative;
+            padding-top: 1px;
+        }
+
+        .h-text {
+            padding: -5%;
+            color: honeydew;
+            font-size: 132%;
+            padding: -5%;
+            padding-top: -81%;
+            display: inline;
+            position: relative;
+            top: 35%;
+        }
+
+        .button {
+            background: #FDF6E3;
+            float: left;
+            padding-block: 7px;
+            padding-left: 179px;
+            padding-right: 6px;
+        }
+
+        .right-body {
+            position: absolute;
+            padding-bottom: 669px;
+            margin-right: 599px;
+            background: #FDF6E3;
+            /* position: relative; */
+            overflow: hidden;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+            font-size: 12px;
+            line-height: normal;
+            direction: ltr;
+
+        }
+
+        .editor {
+            display: inline-flex;
+            gap: 10px;
+            font-family: monospace;
+            line-height: 21px;
+            /* background: #282a3a; */
+            border-radius: 2px;
+            padding: 20px 10px;
+            display: inline-flex;
+            gap: 10px;
+            font-family: monospace;
+            line-height: 20px;
+            /* background: #282a3a; */
+            border-radius: 1px;
+            padding: 20px 10px;
+        
+        }
+
+        .line-numbers {
+            width: 20px;
+            text-align: right;
+        }
+
+        .line-numbers span {
+            counter-increment: linenumber;
+        }
+
+        .line-numbers span::before {
+            content: counter(linenumber);
+            display: block;
+            /* color: #506882; */
+        }
+
+        textarea {
+            line-height: 21px;
+            overflow-y: hidden;
+            padding: 0;
+            border: 0;
+            /* background: #282a3a;  */
+            /* color: #FFF; */
+            min-width: 500px;
+            outline: none;
+            resize: none;
+            line-height: 12px;
+            overflow-y: hidden;
+            padding: 1px;
+            border: 1;
+            /* background: #282a3a; */
+            /* color: #FFF; */
+            min-width: 400px;
+            outline: none;
+            resize: none;
+        }
+
+        .stack-call {
+            display: inline-block;
+            width: 21%;
+            margin-top: 7px;
+            margin-bottom: 4px;
+            background-color: white;
+            width: 244px;
+            padding: 20px;
+            margin-bottom: 86px;
+            margin-top: 0px;
+            padding-top: 21px;
+            padding-bottom: 12px;
+            right: 327px;
+            position: absolute;
+            margin-right: 489px;
+
+        }
+
+        .web {
+            display: inline-block;
+            background-color: white;
+            width: 766px;
+            padding: 21px;
+            margin-top: 0px;
+            padding-top: 21px;
+            padding-bottom: 34px;
+            right: 23px;
+            position: absolute;
+            height: 350px;
+            margin-right: -15px;
+        }
+
+        .queue {
+            background-color: white;
+            display: inline-block;
+            width: 70%;
+
+            position: relative;
+            left: 411px;
+            padding: 20px;
+            margin-bottom: 86px;
+            margin-top: 405px;
+            padding-bottom: 23px;
+        }
+        .child-stack,
+        .child-queue,
+        .child-web {
+            border: 2px #ddd dashed;
+            position: relative;
+            padding: 2px 1px 1px 5px;
+            color: gray;
+        }
+
+        .child-queue {
+            overflow-y: scroll;
+        }
+
+        .child-web {
+            padding-left: 19px;
+            width: 744px;
+        }
+
+        .c-child-stack {
+            padding-bottom: 306px;
+            padding-left: 4px;
+        }
+
+        .c-child-web {
+            padding-bottom: 306px;
+            padding-left: 13px;
+        }
+
+        .c-child-queue {
+            padding: 101px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1 class="h-text"> JavaScript Event Loop</h1>
+        </header>
+
+        <div class="body">
+            <section class="right-body">
+             <!--   <div class="button">
+                    <button>Edit</button>
+                    <button>Return</button>
+                    <button>Pause</button>
+                    <button>Resume</button>
+                </div> -->
+                <div class="code-area">
+                    <div class="editor">
+                        <div class="line-numbers">
+                            <span></span>
+                        </div>
+                        <textarea></textarea>
+                        
+                    </div>
+                </div>
+            </section>
+            <section class="left-body">
+
+                <section class="stack-call">
+                    <div class="child-stack">
+                        <h3 allign="left">Call Stack</h3>
+                        <div class="c-child-stack">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="web">
+                    <div class="child-web">
+                        <h3 allign="left">Web Apis</h3>
+                        <div class="c-child-web">
+
+                        </div>
+                    </div>
+                </section>
+
+                <section class="queue">
+                    <div class="child-queue">
+                        <h3 allign="left">Callback Queue</h3>
+                        <div class="c-child-queue">
+
+                        </div>
+
+                    </div>
+                </section>
+
+            </section>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        const textarea = document.querySelector('textarea')
+        const lineNumbers = document.querySelector('.line-numbers')
+
+        textarea.addEventListener('keyup', event => {
+            const numberOfLines = event.target.value.split('\n').length
+
+            lineNumbers.innerHTML = Array(numberOfLines)
+                .fill('<span></span>')
+                .join('')
+        })
+
+        textarea.addEventListener('keydown', event => {
+            if (event.key === 'Tab') {
+                const start = textarea.selectionStart
+                const end = textarea.selectionEnd
+
+                textarea.value = textarea.value.substring(0, start) + '\t' + textarea.value.substring(end)
+
+                event.preventDefault()
+            }
+        })
+    </script>
+</body>
+
+</html>
