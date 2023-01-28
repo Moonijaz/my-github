@@ -12,8 +12,15 @@
     </style>
 </head>
 <body>
-    <input type="button" id="a"  value="Save  Run" onclick="makeChange()"/>
+  <!---  <input type="button" id="a"  value="Save  Run" onclick="makeChange()"/>
 
+    <input type="button" id="b1"  value="Edit" onclick="makeChange()"/>
+    <input type="button" id="b2"  value="Rerun" onclick="makeChange()"/>
+    <input type="button" id="b3"  value="Paus" onclick="makeChange()"/>
+    <input type="button" id="b4"  value="Resume" onclick="makeChange()"/>
+-->
+
+    <input type="button" id="a"  value="Save + Run" onclick="makeChange()"/>
     <input type="button" id="b1"  value="Edit" onclick="makeChange()"/>
     <input type="button" id="b2"  value="Rerun" onclick="makeChange()"/>
     <input type="button" id="b3"  value="Paus" onclick="makeChange()"/>
@@ -21,13 +28,15 @@
     
 
     <script type="text/javascript">
-        function makeChange() {
-            document.getElementById("b1").style.display = "flex";
-            document.getElementById("b2").style.display = "flex";
-            document.getElementById("b3").style.display = "flex";
-            document.getElementById("b4").style.display = "flex";
-            document.getElementById("a").style.visibility="hidden";
-        }
+    //    function makeChange() {
+    //        document.getElementById("b1").style.display = "flex";
+    //        document.getElementById("b2").style.display = "flex";
+    //        document.getElementById("b3").style.display = "flex";
+    //        document.getElementById("b4").style.display = "flex";
+    //        document.getElementById("a").style.visibility="hidden";
+    //    }
+      
     </script>
+    <script type="module" src="modules/buttons.js"></script>
 </body>
 </html>
