@@ -6,3 +6,4 @@ function makeChange() {
     document.getElementById("b4").style.display = "flex";
     
 }
+export{makeChange};
