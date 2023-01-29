@@ -6,27 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button</title>
     <style>
-        #b1, #b2, #b3 , #b4{
+        #b1,#b2,#b3,#b4 {
             display: none;
-            }
+            float: left;
+          }
     </style>
 </head>
 <body>
-    <input type="button" id="a"  value="Save  Run" onclick="makeChange()"/>
-
-    <input type="button" id="b1"  value="Edit" onclick="makeChange()"/>
-    <input type="button" id="b2"  value="Rerun" onclick="makeChange()"/>
-    <input type="button" id="b3"  value="Paus" onclick="makeChange()"/>
-    <input type="button" id="b4"  value="Resume" onclick="makeChange()"/>
-    
+    <div>
+         <input type="button" id="a" value="Save+Run" onclick="makeChange()" />
+        <input type="button" id="b1" value="Save" onclick="makeChange()" />
+        <input type="button" id="b3" value="Pause" onclick="makeChange()" />
+        <input type="button" id="b4" value="Resume" onclick="makeChange()" />
+    </div>
 
     <script type="text/javascript">
         function makeChange() {
+            document.getElementById("a").style.visibility="hidden";
             document.getElementById("b1").style.display = "flex";
-            document.getElementById("b2").style.display = "flex";
             document.getElementById("b3").style.display = "flex";
             document.getElementById("b4").style.display = "flex";
-            document.getElementById("a").style.visibility="hidden";
+            
         }
     </script>
 </body>
