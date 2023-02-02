@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Flex</title>
+    <style>
+        .Wrap{
+            display: flex;
+            justify-content: space-between;
+        }
+        .a{
+            display: inherit;
+            background: cadetblue;
+        }
+        .b{
+            display: inherit;
+            background: blueviolet;
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+        .c{
+            display: inherit;
+            background: cyan;
+        }
+    </style>
 </head>
 <body>
-    
+    <section class="Wrap">
+    <section class="a">
+        <h1>A</h1>
+    </section>
+    <section class="b">
+        <h1>B</h1>
+    </section>
+    <section class="c">
+        <h1>C</h1>
+        <h1>D</h1>
+        <h1>E</h1>
+    </section>        
+    </section>
+
 </body>
 </html>
