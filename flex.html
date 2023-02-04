@@ -1,41 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flex</title>
     <style>
-        .Wrap{
-            justify-content: space-between;
+        .Wrap {
+            display: flex;
+            flex-direction: column;
         }
-        .a{
+
+        .a {
+            display: flex;
+            justify-content: space-around;
             background: cadetblue;
+            width: 100;
         }
-        .b{ 
+
+        .b {
+            display: flex;
+            justify-content: space-between;
             background: blueviolet;
+            width: 100;
             flex-grow: 1;
             flex-shrink: 1;
         }
-        .c{ 
+
+        .c {
+            display: flex;
+            justify-content: space-evenly;
             background: cyan;
+            width: 200;
         }
     </style>
 </head>
+
 <body>
     <section class="Wrap">
-    <section class="a">
-        <h1>A</h1>
-    </section>
-    <section class="b">
-        <h1>B</h1>
-    </section>
-    <section class="c">
-        <h1>C</h1>
-        <h1>D</h1>
-        <h1>E</h1>
-    </section>        
+        <section class="a">
+            <h1>A</h1>
+            <h1>B</h1>
+            <h3>C</h3>
+        </section>
+        <section class="b">
+            <h1>D</h1>
+            <h1>E</h1>
+            <h1>F</h1>
+        </section>
+        <section class="c">
+            <h1>G</h1>
+            <h1>H</h1>
+            <h1>I</h1>
+        </section>
     </section>
 
 </body>
+
 </html>
