@@ -1,53 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <title>menu</title>
     <style>
-
-        nav{
-            background-color: rgb(56, 55, 131);
-        }
-
-        *{ /* Select overall properties */
+        * {
+            /* Select overall properties */
             margin: 0px;
             padding: 0px;
-        }
-        ul{
-            display: flex;
-            justify-content: flex-end;
-            list-style: none;
-        }
-        li{
-            padding: 10px 20px;
-        }
-        a{
-            font-size: 18px;
             text-decoration: none;
-            font-family: 'Times New Roman';
-            color: rgb(157, 177, 191);
+            list-style: none;
+            box-sizing: border-box;
         }
-        @media only screen and (max-width:700px) {
-            ul{
-                height: auto;
-                flex-direction: column;
-                text-align: left;
-                
+
+        body {
+            font-family: montserrat;
+
+        }
+
+        nav {
+            background-color: #1d252ce8;
+            height: 80px;
+            width: 100%;
+        }
+
+        label.logo {
+            color: white;
+            font-size: 36px;
+            line-height: 80px;
+            padding: 0 40px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            float: right;
+            margin-right: 20px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 5px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 17px;
+            padding: 7px 13px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+
+        a.active,
+        a:hover {
+            background: #68757e;
+            transition: .5s;
+        }
+
+        .checkbtn {
+            font-size: 30px;
+            color: white;
+            float: right;
+            line-height: 80px;
+            margin-right: 40px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #check {
+            display: none;
+        }
+
+        @media (max-width: 750px) {
+            label.logo {
+                font-size: 30px;
+                padding-left: 50px;
             }
 
+            nav ul li a {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 750px) {
+            .checkbtn {
+                display: block;
+            }
+
+            ul {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                background: #394045;
+                top: 80px;
+                left: -100%;
+                text-align: center;
+                transition: all .5s;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 50px 0;
+                line-height: 30px;
+            }
+
+            nav ul li a {
+                font-size: 20px;
+            }
+
+            a:hover,
+            a.active {
+                background: none;
+                color: #68757e;
+            }
+
+            #check:checked~ul {
+                left: 0;
+            }
+        }
+
+        section {
+            background: url(1.jpg) no-repeat;
+            background-size: cover;
+            height: calc(100vh - 80px);
         }
     </style>
 </head>
+
 <body>
     <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">NavBar</label>
         <ul>
-            <li><a href="#">Page1</a></li>
-            <li><a href="#">Page2</a></li>
-            <li><a href="#">Page3</a></li>
-            <li><a href="#">Page4</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
+    <section></section>
 </body>
+
 </html>
