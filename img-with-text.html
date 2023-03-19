@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Responsive Image with Text Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+        .d{
+            position: relative;
+        }
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+		.text-overlay {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: white;
+			font-size: 2rem;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="d">
+		<img src="1.jpg" alt="Image with Text">
+		<div class="text-overlay">
+			<h2>Example Text Overlay</h2>
+			<p>Image overlay.</p>
+		</div>
+	</div>
+</body>
+</html>
