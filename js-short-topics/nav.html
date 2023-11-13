@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving Element</title>
+  <style>
+    .moving-element {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      margin-left: 0; /* Initial position */
+      transition: margin-left 1s ease; /* Define the transition property */
+    }
+
+    .move-right {
+      margin-left: 200px; /* Move the element 200 pixels to the right */
+    }
+  </style>
+</head>
+<body>
+
+<div class="moving-element"></div>
+
+<input type="checkbox" id="moveToggle" onclick="moveRight()">
+<label for="moveToggle">Move Right</label>
+
+<script>
+  function moveRight() {
+    var element = document.querySelector('.moving-element');
+    element.classList.toggle('move-right');
+  }
+</script>
+
+</body>
+</html>
